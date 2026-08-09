@@ -1,0 +1,23 @@
+# Generated simulations and local model inputs
+artifacts/
+data/
+*.epw
+*.ddy
+*.stat
+*.idf
+*.osm
+*.osw
+*.eso
+*.sql
+eplusout.*
+
+# Ruby and OpenStudio local state
+.bundle/
+vendor/
+Gemfile.lock.local
+
+# Python/editor state
+__pycache__/
+.pytest_cache/
+.vscode/
+*.py[cod]

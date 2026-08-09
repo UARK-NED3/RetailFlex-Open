@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use RetailFlex-Open, please cite this software."
+title: "RetailFlex-Open"
+abstract: "Open, reproducible workflows for screening retail-building energy flexibility."
+type: software
+authors:
+  - family-names: Hu
+    given-names: Han
+    affiliation: University of Arkansas
+license: MIT
+repository-code: https://github.com/UARK-NED3/RetailFlex-Open
+version: 0.1.0
+date-released: 2026-08-09

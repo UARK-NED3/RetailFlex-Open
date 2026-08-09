@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0",
+  "project": "RetailFlex-Open",
+  "sources": [
+    {
+      "id": "openstudio_standards_supermarket",
+      "role": "current_baseline_generator",
+      "required_version": "0.8.5",
+      "redistributed": false,
+      "notes": "Use the locally installed OpenStudio Standards SuperMarket prototype generator."
+    },
+    {
+      "id": "doe_reference_supermarket_post1980",
+      "role": "historical_comparison_only",
+      "energyplus_input_version": "5.0.0",
+      "redistributed": false,
+      "notes": "Do not execute in the current toolchain without a separately verified transition or archival environment."
+    },
+    {
+      "id": "nlr_usa_tmy3_epw",
+      "role": "weather_input",
+      "redistributed": false,
+      "notes": "Use a location-specific EPW; initial Northwest Arkansas candidates include Fayetteville, Bentonville, Rogers, and Springdale."
+    },
+    {
+      "id": "cbecs_2018",
+      "role": "stock_characterization_reference",
+      "redistributed": false,
+      "notes": "Not a calibration substitute."
+    },
+    {
+      "id": "comstock",
+      "role": "aggregate_or_sample_comparison",
+      "redistributed": false,
+      "notes": "Record the exact release, data dictionary, geography, weather year, and aggregation level before use."
+    }
+  ]
+}
