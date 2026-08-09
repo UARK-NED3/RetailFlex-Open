@@ -13,6 +13,12 @@ RetailFlex-Open creates transparent EnergyPlus/OpenStudio baseline models, appli
 
 The first planned measures are thermostat adjustment, precooling, lighting reduction, and plug-load reduction. Refrigeration controls are deliberately out of scope until the baseline refrigeration representation has been inspected and validated.
 
+## Decision Sandbox demo
+
+The repository now includes a reproducible, local **RetailFlex Decision Sandbox** workflow. It runs a baseline plus two clearly illustrative schedule scenarios and produces a self-contained HTML page for an Energy/facilities discussion. It is designed to show both favorable and unfavorable results; it does not calculate utility-bill savings or make an operating recommendation.
+
+See the [demo runbook](docs/demo-runbook.md). Generated model files, simulation outputs, and the HTML page are ignored and remain local.
+
 ## Requirements
 
 - OpenStudio 3.11.0, including its embedded EnergyPlus 25.2.0.

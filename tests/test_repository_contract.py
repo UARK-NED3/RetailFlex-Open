@@ -19,3 +19,12 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("Missing companion DDY", script)
         self.assertIn("generated_screening_baseline", script)
         self.assertIn("not calibrated or independently validated", script)
+
+    def test_demo_keeps_walmart_and_refrigeration_control_out_of_scope(self):
+        config = json.loads((ROOT / "config" / "demo_scenarios.json").read_text(encoding="utf-8"))
+        combined = json.dumps(config).lower()
+        self.assertIn("not calibrated", combined)
+        self.assertNotIn("refrigeration control", combined)
+        self.assertEqual([scenario["id"] for scenario in config["scenarios"]], [
+            "baseline", "thermal_shift", "thermal_shift_lighting"
+        ])

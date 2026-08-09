@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "title": "RetailFlex Decision Sandbox",
+  "claim_boundary": "All cases are simulated screening scenarios for a representative SuperMarket prototype. They are not calibrated to, validated for, or authorized to control any Walmart store.",
+  "scenarios": [
+    {
+      "id": "baseline",
+      "label": "Baseline",
+      "description": "Unmodified prototype schedules."
+    },
+    {
+      "id": "thermal_shift",
+      "label": "Illustrative thermal shift",
+      "description": "Each day, reduce the shared cooling setpoint by 1.0 degC from 12:00-15:00 and increase it by 1.0 degC from 15:00-18:00. This is an illustrative screening intervention, not an operating recommendation.",
+      "cooling_schedule": "SuperMarket ClgSetp",
+      "pre_cool_start_hour": 12,
+      "peak_start_hour": 15,
+      "peak_end_hour": 18,
+      "setpoint_shift_c": 1.0
+    },
+    {
+      "id": "thermal_shift_lighting",
+      "label": "Thermal shift plus illustrative lighting reduction",
+      "description": "Thermal-shift case plus a 20% reduction to the prototype interior-lighting schedule from 15:00-18:00. This excludes visual-task, merchandising, safety, and operational review.",
+      "cooling_schedule": "SuperMarket ClgSetp",
+      "lighting_schedule": "SuperMarket Bldg Light",
+      "pre_cool_start_hour": 12,
+      "peak_start_hour": 15,
+      "peak_end_hour": 18,
+      "setpoint_shift_c": 1.0,
+      "lighting_multiplier": 0.8
+    }
+  ]
+}
