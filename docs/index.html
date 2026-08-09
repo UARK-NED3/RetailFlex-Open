@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RetailFlex Decision Sandbox</title>
+  <style>
+    :root { color-scheme: light; --green:#186445; --ink:#13222e; --muted:#566571; --amber:#fff4d6; }
+    body { margin:0; background:#f5f7f8; color:var(--ink); font:16px/1.5 system-ui,sans-serif; }
+    main { max-width:1100px; margin:auto; padding:32px 22px 48px; }
+    .kicker { color:var(--green); font-size:.85rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { font-size:2.3rem; line-height:1.1; margin:.2rem 0; } h2 { margin-top:2rem; }
+    .muted { color:var(--muted); } .boundary { background:var(--amber); border-left:5px solid #bd7800; padding:14px 18px; margin:24px 0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; }
+    .card,.panel { background:#fff; border:1px solid #dce3e7; border-radius:10px; padding:17px; }
+    .metric { font-size:1.55rem; font-weight:750; } table { width:100%; border-collapse:collapse; background:white; }
+    th,td { padding:10px; vertical-align:top; border-bottom:1px solid #e3e8eb; text-align:left; } th { background:#eaf2ef; }
+    .risk { color:#9b3514; font-weight:700; } svg { width:100%; height:300px; background:#fff; border:1px solid #dce3e7; border-radius:10px; }
+    button { color:#fff; background:var(--green); border:0; border-radius:6px; padding:8px 11px; margin:0 6px 10px 0; cursor:pointer; }
+    button.off { background:#789086; } .footer { color:var(--muted); font-size:.9rem; margin-top:26px; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="kicker">University of Arkansas / NED3 / screening demonstration</div>
+  <h1>RetailFlex Decision Sandbox</h1>
+  <p class="muted">Representative Northwest Arkansas SuperMarket prototype / annual EnergyPlus simulations</p>
+  <div class="boundary">All results below are simulated screening scenarios for a representative SuperMarket prototype. They are not calibrated to, validated for, or authorized to control any Walmart store.</div>
+  <section class="grid" id="cards"></section>
+  <h2>Illustrative peak-day comparison</h2>
+  <p class="muted">Selected summer event day: September 4; modeled event window: 15:00-18:00 local model time. One hourly kWh is presented as average kW.</p>
+  <div id="toggles"></div><svg id="chart" viewBox="0 0 1000 300" role="img" aria-label="Hourly facility electricity comparison"></svg>
+  <section class="panel"><h2>What this demonstrates</h2><p>RetailFlex makes the intervention, model, and tradeoffs inspectable before a store-specific pilot. Here, the thermal-shift case does not improve the selected event-window energy, so it is marked for rejection or redesign rather than promoted as savings.</p>
+  <table><thead><tr><th>Case</th><th>Annual site electricity</th><th>Annual peak</th><th>Event-window energy</th><th>Screening interpretation</th></tr></thead><tbody id="rows"></tbody></table></section>
+  <section class="grid" style="margin-top:16px"><div class="panel"><h2>Data needed for a real-store assessment</h2><ul><li>Store format, floor area, and major HVAC/refrigeration configuration</li><li>12 months of interval whole-building electricity and applicable tariff</li><li>Operating schedules and constraints</li><li>Approved read-only BMS point list/historical extract</li></ul></div><div class="panel"><h2>Requested next decision</h2><p>Approve a data-and-operations scoping meeting for a read-only, limited store assessment. No live control, customer data, associate data, or fleet-wide dataset is requested.</p></div></section>
+  <p class="footer">This public page contains only simulated prototype outputs. It is not a Walmart analysis, operating instruction, safety assessment, or savings guarantee. See the <a href="https://github.com/UARK-NED3/RetailFlex-Open">open source repository</a> for model provenance and reproduction instructions.</p>
+</main>
+<script>
+const cases=[
+ {id:'baseline',label:'Baseline',annual:1429442.24,peak:284.33,event:806.69,data:[88.25,133.70,132.40,133.21,133.96,167.82,237.03,229.75,234.59,247.85,250.91,278.08,275.76,267.27,267.28,266.54,267.95,272.20,268.40,276.53,266.82,250.04,152.05,109.98]},
+ {id:'thermal',label:'Illustrative thermal shift',annual:1429918.24,peak:293.30,event:807.03,data:[77.79,132.96,132.38,133.19,133.95,167.80,260.00,237.53,241.89,255.38,260.46,287.46,248.05,251.48,251.89,268.49,267.34,271.20,267.38,275.57,265.92,248.69,176.48,143.71]},
+ {id:'combined',label:'Thermal shift plus illustrative lighting reduction',annual:1401339.09,peak:284.20,event:803.38,data:[77.78,132.93,132.36,133.17,133.93,167.78,248.21,226.69,232.18,245.73,251.45,278.36,237.67,243.05,243.53,267.00,266.20,270.18,266.46,274.73,265.28,247.73,176.45,143.68]}
+];
+const fmt=n=>n.toLocaleString(undefined,{maximumFractionDigits:0}); const baseline=cases[0]; let shown=new Set(cases.map(x=>x.id));
+document.querySelector('#cards').innerHTML=`<div class="card"><div class="muted">Model status</div><div class="metric">Screening only</div></div><div class="card"><div class="muted">Baseline annual electricity</div><div class="metric">${fmt(baseline.annual)} kWh</div></div><div class="card"><div class="muted">Baseline annual peak</div><div class="metric">${fmt(baseline.peak)} kW</div></div><div class="card"><div class="muted">Primary decision</div><div class="metric">Pilot data scope</div></div>`;
+const verdict=c=>c.id==='baseline'?'Reference case':c.event<baseline.event?'Candidate for further review':'Reject or redesign before pilot';
+document.querySelector('#rows').innerHTML=cases.map(c=>`<tr><td>${c.label}</td><td>${fmt(c.annual)} kWh</td><td>${fmt(c.peak)} kW</td><td>${fmt(c.event)} kWh</td><td class="${verdict(c).startsWith('Reject')?'risk':''}">${verdict(c)}</td></tr>`).join('');
+const colors=['#186445','#1677b8','#cc6c1d']; function draw(){document.querySelector('#toggles').innerHTML=cases.map((c,i)=>`<button class="${shown.has(c.id)?'':'off'}" onclick="toggleCase('${c.id}')">${c.label}</button>`).join(''); let svg=''; const max=300; for(let y=0;y<=300;y+=75){let py=260-y/max*220;svg+=`<line x1="55" y1="${py}" x2="970" y2="${py}" stroke="#dfe5e8"/><text x="5" y="${py+4}" font-size="12">${y} kW</text>`} for(let h=0;h<24;h+=3){let x=55+h/23*915;svg+=`<text x="${x-8}" y="285" font-size="12">${h}:00</text>`} cases.forEach((c,i)=>{if(!shown.has(c.id))return;const points=c.data.map((v,h)=>`${55+h/23*915},${260-v/max*220}`).join(' ');svg+=`<polyline points="${points}" fill="none" stroke="${colors[i]}" stroke-width="3"/><text x="650" y="${26+i*20}" fill="${colors[i]}" font-size="13">${c.label}</text>`});document.querySelector('#chart').innerHTML=svg;} window.toggleCase=id=>{shown.has(id)?shown.delete(id):shown.add(id);draw()};draw();
+</script>
+</body></html>

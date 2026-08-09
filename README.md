@@ -17,7 +17,7 @@ The first planned measures are thermostat adjustment, precooling, lighting reduc
 
 The repository now includes a reproducible, local **RetailFlex Decision Sandbox** workflow. It runs a baseline plus two clearly illustrative schedule scenarios and produces a self-contained HTML page for an Energy/facilities discussion. It is designed to show both favorable and unfavorable results; it does not calculate utility-bill savings or make an operating recommendation.
 
-See the [demo runbook](docs/demo-runbook.md). Generated model files, simulation outputs, and the HTML page are ignored and remain local.
+See the [demo runbook](docs/demo-runbook.md). The public demonstration page is limited to screened, simulated prototype outputs; generated model files and simulation outputs remain local.
 
 ## Requirements
 
