@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "purpose": "Local-only controlled-site model intake. Do not commit a completed manifest or any referenced file.",
+  "data_classification": "controlled",
+  "model": {
+    "path": "C:\\controlled_workspace\\site_model.osm",
+    "format": "OpenStudio Model",
+    "source_status": "authorized_internal_reference",
+    "model_version": "record locally"
+  },
+  "evidence": {
+    "utility_interval_data": "available|not_available|pending_authorization",
+    "tariff": "available|not_available|pending_authorization",
+    "bms_or_trend_data": "available|not_available|pending_authorization",
+    "equipment_inventory": "available|not_available|pending_authorization",
+    "refrigeration_configuration": "available|not_available|pending_authorization"
+  },
+  "permitted_use": ["local_baseline_qa", "local_scenario_screening"],
+  "prohibited_without_separate_authorization": [
+    "public_release", "source_control_commit", "external_transfer", "live_control", "store_specific_savings_claim"
+  ]
+}

@@ -19,6 +19,20 @@ The repository now includes a reproducible, local **RetailFlex Decision Sandbox*
 
 See the [demo runbook](docs/demo-runbook.md). The public demonstration page is limited to screened, simulated prototype outputs; generated model files and simulation outputs remain local.
 
+## Controlled site-model mode
+
+An authorized retail-store model may be used locally to improve model QA and choose relevant workflow modules without being copied to this repository or disclosed publicly. RetailFlex provides a non-identifying structural-inventory script and a local intake-manifest template; see [controlled site-model mode](docs/controlled-site-mode.md). A controlled model is not, by itself, a calibrated or validated model and cannot support a store-specific savings, safety, or control claim.
+
+Before a site-specific assessment, validate the local intake manifest. The validator never reads the referenced model or data files; it produces a readiness decision from metadata and evidence status only.
+
+```powershell
+& 'C:\Users\hanhu\Anaconda3\python.exe' scripts\validate_site_intake.py `
+  --input 'private\controlled_site\site_intake.json' `
+  --output 'private\controlled_site\readiness_report.json'
+```
+
+See the [development plan](docs/development-plan.md) and the [site-intake example](config/site_intake.example.json). The public example is synthetic; completed manifests remain controlled.
+
 ## Requirements
 
 - OpenStudio 3.11.0, including its embedded EnergyPlus 25.2.0.

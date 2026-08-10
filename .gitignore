@@ -1,6 +1,10 @@
 # Generated simulations and local model inputs
 artifacts/
 data/
+# Controlled customer/site-model workspace. This directory may contain
+# confidential models, utility/BMS exports, and locally generated reports.
+private/
+controlled_site/
 *.epw
 *.ddy
 *.stat

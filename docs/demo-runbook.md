@@ -26,6 +26,10 @@ This demonstration uses a representative SuperMarket prototype and public weathe
 
 Open the generated HTML file directly in a browser. It has no network dependency.
 
+The page also presents Track A's synthetic readiness gate and bounded measure library. Those sections contain no site data and do not change the evidence class of the EnergyPlus outputs.
+
+To refresh the public GitHub Pages version after reviewing the local artifact, use the same builder with `--output docs\index.html`. Do not publish until repository review confirms that the output contains only simulated prototype and synthetic metadata.
+
 ## Meeting boundary
 
 Show the numerical result even when it is unfavorable. The appropriate outcome is a decision to reject, redesign, or seek site data—not a generic savings claim. Do not add refrigeration control, actual tariff savings, utility-bill savings, or comfort/safety claims without authorized store-specific data and review.

@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.1.0",
+  "evidence_class": "synthetic_metadata_and_simulated_prototype_outputs",
+  "readiness_example": {
+    "label": "Synthetic intake example",
+    "status": "ready_with_warnings",
+    "next_step": "Configure a controlled site baseline and document reconciliation.",
+    "available": [
+      "Model revision and weather station recorded",
+      "12 months of 15-minute whole-building electricity",
+      "Tariff version, equipment inventory, and operating constraints"
+    ],
+    "pending": ["Read-only BMS trends and point dictionary"],
+    "blocked_actions": [
+      "Store-specific savings claim",
+      "Refrigeration safety or control recommendation",
+      "Live BAS control"
+    ]
+  },
+  "workflow": [
+    {
+      "step": "1",
+      "title": "Prototype screening",
+      "evidence": "Public weather and simulated prototype",
+      "decision": "Explain a candidate mechanism; do not claim site performance"
+    },
+    {
+      "step": "2",
+      "title": "Controlled intake",
+      "evidence": "Authorized local model and metadata",
+      "decision": "Advance or block site-baseline work"
+    },
+    {
+      "step": "3",
+      "title": "Baseline reconciliation",
+      "evidence": "Model, interval electricity, tariff, documented assumptions",
+      "decision": "Assess model fitness for scenario screening"
+    },
+    {
+      "step": "4",
+      "title": "Bounded advisory pilot",
+      "evidence": "Approved constraints and facilities review",
+      "decision": "Advance, redesign, collect data, or reject"
+    }
+  ],
+  "measure_library": [
+    {
+      "name": "HVAC temperature-band or precooling screen",
+      "state": "screening candidate",
+      "mechanism": "Shift sensible cooling electricity away from a selected event period; quantify rebound rather than assume benefit.",
+      "minimum_inputs": "HVAC configuration, schedules, interval electricity, tariff, allowed temperature band",
+      "approval_gate": "Facilities and operations review; no automatic setpoint change"
+    },
+    {
+      "name": "Lighting-schedule screen",
+      "state": "screening candidate",
+      "mechanism": "Test a bounded schedule reduction during a selected event window.",
+      "minimum_inputs": "Lighting inventory, operating/merchandising requirements, interval electricity, tariff",
+      "approval_gate": "Operations, visual-task, security, and safety review"
+    },
+    {
+      "name": "Schedule and load-shape audit",
+      "state": "QA candidate",
+      "mechanism": "Compare interval-load features with documented hours and equipment schedules to find a data or schedule discrepancy.",
+      "minimum_inputs": "Interval electricity, store hours, major-equipment schedule, meter boundary",
+      "approval_gate": "Confirm with facilities before changing schedules"
+    },
+    {
+      "name": "Refrigeration control",
+      "state": "out of scope",
+      "mechanism": "Not evaluated by the public demo.",
+      "minimum_inputs": "Authorized refrigeration representation, monitoring data, food-safety constraints, qualified review",
+      "approval_gate": "Separate authorization and safety review required"
+    }
+  ]
+}

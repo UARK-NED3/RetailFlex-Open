@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import importlib.util
 import unittest
 
 
@@ -28,3 +29,42 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertEqual([scenario["id"] for scenario in config["scenarios"]], [
             "baseline", "thermal_shift", "thermal_shift_lighting"
         ])
+
+    def test_controlled_site_interface_is_generic_and_protected(self):
+        ignore_rules = (ROOT / ".gitignore").read_text(encoding="utf-8")
+        manifest = json.loads((ROOT / "config" / "controlled_site_manifest.example.json").read_text(encoding="utf-8"))
+        script = (ROOT / "scripts" / "inspect_controlled_site_model.rb").read_text(encoding="utf-8")
+        self.assertIn("private/", ignore_rules)
+        self.assertIn("controlled_site/", ignore_rules)
+        self.assertEqual(manifest["data_classification"], "controlled")
+        self.assertIn("public_release", manifest["prohibited_without_separate_authorization"])
+        self.assertIn("non_identifying_structural_inventory", script)
+        self.assertIn("No store-specific savings claim", script)
+
+    def test_synthetic_site_intake_is_ready_and_has_no_identifying_content(self):
+        spec = importlib.util.spec_from_file_location("site_intake", ROOT / "scripts" / "validate_site_intake.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        intake = json.loads((ROOT / "config" / "site_intake.example.json").read_text(encoding="utf-8"))
+        report = module.assess(intake)
+        self.assertEqual(report["readiness"], "ready_with_warnings")
+        self.assertEqual(report["permitted_next_step"], "configure_site_baseline_and_document_reconciliation")
+        self.assertIn("bms_trends: pending authorization", report["warnings"])
+        self.assertNotIn("Walmart", json.dumps(intake))
+
+    def test_track_a_demo_configuration_has_explicit_gates(self):
+        config = json.loads((ROOT / "config" / "demo_track_a.json").read_text(encoding="utf-8"))
+        measure_states = [measure["state"] for measure in config["measure_library"]]
+        self.assertEqual(config["evidence_class"], "synthetic_metadata_and_simulated_prototype_outputs")
+        self.assertEqual(config["readiness_example"]["status"], "ready_with_warnings")
+        self.assertIn("out of scope", measure_states)
+        self.assertIn("Live BAS control", config["readiness_example"]["blocked_actions"])
+
+    def test_published_demo_exposes_track_a_without_controlled_material(self):
+        page = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("Readiness gate", page)
+        self.assertIn("Bounded measure library", page)
+        self.assertIn("synthetic Track A metadata", page)
+        self.assertIn("Store-specific savings claim", page)
+        self.assertNotIn("C:\\Users\\hanhu", page)
+        self.assertNotIn("controlled_workspace", page)

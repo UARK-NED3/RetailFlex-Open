@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "classification": "controlled",
+  "purpose": "synthetic example only; do not commit a completed site intake",
+  "site": {
+    "building_type": "supermarket",
+    "model_format": "osm",
+    "model_revision_recorded": true,
+    "weather_station_recorded": true
+  },
+  "data_assets": {
+    "interval_electricity": {
+      "status": "available",
+      "coverage_months": 12,
+      "interval_minutes": 15,
+      "time_zone_recorded": true,
+      "meter_boundary_recorded": true
+    },
+    "tariff": { "status": "available", "version_recorded": true },
+    "equipment_inventory": { "status": "available" },
+    "operating_constraints": { "status": "available" },
+    "bms_trends": { "status": "pending_authorization" },
+    "refrigeration_configuration": { "status": "available" }
+  },
+  "governance": {
+    "data_use_authorized": true,
+    "retention_period_recorded": true,
+    "publication_review_recorded": true
+  },
+  "requested_decision": "screen_candidate_energy_and_peak_measures"
+}
