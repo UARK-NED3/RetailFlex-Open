@@ -92,6 +92,7 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("RetailFlex Climate Atlas", atlas_page)
         self.assertIn("not retail stores", atlas_page)
         self.assertIn('class="nav-button" href="../"', atlas_page)
+        self.assertLess(atlas_page.index('class="nav-button" href="../"'), atlas_page.index('class="metrics"'))
         atlas_app = (ROOT / "docs" / "atlas" / "app.js").read_text(encoding="utf-8")
         self.assertIn("RETAILFLEX_CLIMATE_ATLAS", atlas_app)
         self.assertNotIn("fetch(", atlas_app)
