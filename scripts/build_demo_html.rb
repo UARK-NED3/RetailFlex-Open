@@ -43,7 +43,7 @@ html = <<~HTML
     .tag.warn { background:#fff1d0; color:#815000 } .tag.no { background:#f9e5dd; color:var(--red) } .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; counter-reset:step; }
     .step { background:#fff; border-top:4px solid var(--green); border-radius:9px; padding:15px; border-left:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line); } .num { color:var(--green); font-weight:800; }
     table { width:100%; border-collapse:collapse; background:#fff; font-size:.94rem; } th,td { padding:10px; vertical-align:top; border-bottom:1px solid var(--line); text-align:left; } th { background:#e7f0eb; } .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:10px; }
-    svg { display:block; width:100%; height:310px; background:#fff; border:1px solid var(--line); border-radius:10px; } .chart-legend { display:flex; flex-wrap:wrap; gap:8px 16px; margin:10px 0 16px; color:var(--muted); font-size:.88rem; } .legend-item { display:inline-flex; align-items:center; gap:6px; } .legend-line { width:24px; height:0; border-top:3px solid currentColor; border-radius:2px; } .legend-item.hidden { opacity:.5; text-decoration:line-through; } button { color:#fff; background:var(--green); border:0; border-radius:7px; padding:8px 11px; margin:0 7px 10px 0; cursor:pointer; font:inherit; } button.off { background:#80958a; } button.pick { background:#e7f0eb; color:var(--ink); } button.pick[aria-pressed="true"] { background:var(--green); color:#fff; }
+    svg { display:block; width:100%; height:310px; background:#fff; border:1px solid var(--line); border-radius:10px; } .chart-legend { display:flex; flex-wrap:wrap; gap:8px 16px; margin:10px 0 16px; color:var(--muted); font-size:.88rem; } .legend-item { display:inline-flex; align-items:center; gap:6px; } .legend-line { width:24px; height:0; border-top:3px solid currentColor; border-radius:2px; } .legend-item.hidden { opacity:.5; text-decoration:line-through; } button,.action-button { display:inline-block; color:#fff; background:var(--green); border:0; border-radius:7px; padding:8px 11px; margin:0 7px 10px 0; cursor:pointer; font:inherit; text-decoration:none; } .action-button:hover { background:#0d442c; color:#fff; } button.off { background:#80958a; } button.pick { background:#e7f0eb; color:var(--ink); } button.pick[aria-pressed="true"] { background:var(--green); color:#fff; }
     ul { margin:.45rem 0 0; padding-left:1.15rem } li { margin:.25rem 0 } .footer { color:var(--muted); font-size:.88rem; margin-top:28px; } a { color:var(--blue); } @media print { body{background:#fff}.boundary,.card,.panel,.step{box-shadow:none}button{display:none} }
   </style>
 </head>
@@ -53,7 +53,7 @@ html = <<~HTML
   <p class="muted">Representative Northwest Arkansas SuperMarket prototype · annual EnergyPlus simulations · Track A product workflow</p>
   <div class="boundary" id="boundary"></div>
   <section class="grid" id="cards"></section>
-  <p><a href="atlas/">Open the RetailFlex Climate Atlas →</a> <span class="muted">Public TMY3 station metrics for weather-file selection and climate screening.</span></p>
+  <p><a class="action-button" href="atlas/">Open the RetailFlex Climate Atlas →</a><br><span class="muted">Public TMY3 station metrics for weather-file selection and climate screening.</span></p>
 
   <h2>Decision path</h2>
   <p class="muted">Each stage increases the permitted claim only when the necessary evidence is present.</p>

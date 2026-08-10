@@ -69,6 +69,7 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("Store-specific savings claim", page)
         self.assertIn('id="chartLegend"', page)
         self.assertNotIn('<text x="650"', page)
+        self.assertIn('class="action-button" href="atlas/"', page)
         self.assertNotIn("C:\\Users\\hanhu", page)
         self.assertNotIn("controlled_workspace", page)
 
@@ -90,6 +91,7 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("retail_climate_archetype", generator)
         self.assertIn("RetailFlex Climate Atlas", atlas_page)
         self.assertIn("not retail stores", atlas_page)
+        self.assertIn('class="nav-button" href="../"', atlas_page)
         atlas_app = (ROOT / "docs" / "atlas" / "app.js").read_text(encoding="utf-8")
         self.assertIn("RETAILFLEX_CLIMATE_ATLAS", atlas_app)
         self.assertNotIn("fetch(", atlas_app)
