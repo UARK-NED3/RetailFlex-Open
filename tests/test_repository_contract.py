@@ -67,6 +67,8 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("Bounded measure library", page)
         self.assertIn("synthetic Track A metadata", page)
         self.assertIn("Store-specific savings claim", page)
+        self.assertIn('id="chartLegend"', page)
+        self.assertNotIn('<text x="650"', page)
         self.assertNotIn("C:\\Users\\hanhu", page)
         self.assertNotIn("controlled_workspace", page)
 
@@ -77,6 +79,9 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("Measure explorer", builder)
         self.assertIn("selectScenario", builder)
         self.assertIn("selectMeasure", builder)
+        self.assertIn('id="chartLegend"', builder)
+        self.assertIn("legend-item", builder)
+        self.assertNotIn('<text x="650"', builder)
 
     def test_climate_atlas_is_public_derived_data_not_store_data(self):
         generator = (ROOT / "scripts" / "build_climate_atlas.py").read_text(encoding="utf-8")
