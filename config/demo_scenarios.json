@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1.0",
-  "title": "RetailFlex Decision Sandbox",
+  "title": "RetailFlex Decision Studio",
   "claim_boundary": "All cases are simulated screening scenarios for a representative SuperMarket prototype. They are not calibrated to, validated for, or authorized to control any Walmart store.",
   "scenarios": [
     {

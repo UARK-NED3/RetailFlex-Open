@@ -1,6 +1,11 @@
 # Generated simulations and local model inputs
 artifacts/
 data/
+# The public Atlas contains only derived, station-level aggregate metrics.
+!docs/atlas/
+!docs/atlas/data/
+!docs/atlas/data/*.geojson
+!docs/atlas/data/*.js
 # Controlled customer/site-model workspace. This directory may contain
 # confidential models, utility/BMS exports, and locally generated reports.
 private/

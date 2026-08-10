@@ -26,6 +26,7 @@ class RepositoryContractTests(unittest.TestCase):
         combined = json.dumps(config).lower()
         self.assertIn("not calibrated", combined)
         self.assertNotIn("refrigeration control", combined)
+        self.assertEqual(config["title"], "RetailFlex Decision Studio")
         self.assertEqual([scenario["id"] for scenario in config["scenarios"]], [
             "baseline", "thermal_shift", "thermal_shift_lighting"
         ])
@@ -68,3 +69,22 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("Store-specific savings claim", page)
         self.assertNotIn("C:\\Users\\hanhu", page)
         self.assertNotIn("controlled_workspace", page)
+
+    def test_demo_builder_exposes_interactive_trade_space_and_measure_explorer(self):
+        builder = (ROOT / "scripts" / "build_demo_html.rb").read_text(encoding="utf-8")
+        self.assertIn("Scenario trade-space", builder)
+        self.assertIn("drawScatter", builder)
+        self.assertIn("Measure explorer", builder)
+        self.assertIn("selectScenario", builder)
+        self.assertIn("selectMeasure", builder)
+
+    def test_climate_atlas_is_public_derived_data_not_store_data(self):
+        generator = (ROOT / "scripts" / "build_climate_atlas.py").read_text(encoding="utf-8")
+        atlas_page = (ROOT / "docs" / "atlas" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("source_records_redistributed\": False", generator)
+        self.assertIn("retail_climate_archetype", generator)
+        self.assertIn("RetailFlex Climate Atlas", atlas_page)
+        self.assertIn("not retail stores", atlas_page)
+        atlas_app = (ROOT / "docs" / "atlas" / "app.js").read_text(encoding="utf-8")
+        self.assertIn("RETAILFLEX_CLIMATE_ATLAS", atlas_app)
+        self.assertNotIn("fetch(", atlas_app)

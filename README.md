@@ -13,11 +13,13 @@ RetailFlex-Open creates transparent EnergyPlus/OpenStudio baseline models, appli
 
 The first planned measures are thermostat adjustment, precooling, lighting reduction, and plug-load reduction. Refrigeration controls are deliberately out of scope until the baseline refrigeration representation has been inspected and validated.
 
-## Decision Sandbox demo
+## Decision Studio and Climate Atlas
 
-The repository now includes a reproducible, local **RetailFlex Decision Sandbox** workflow. It runs a baseline plus two clearly illustrative schedule scenarios and produces a self-contained HTML page for an Energy/facilities discussion. It is designed to show both favorable and unfavorable results; it does not calculate utility-bill savings or make an operating recommendation.
+The repository now includes a reproducible, local **RetailFlex Decision Studio** workflow. It runs a baseline plus two clearly illustrative schedule scenarios and produces a self-contained HTML page for an Energy/facilities discussion. It is designed to show both favorable and unfavorable results; it does not calculate utility-bill savings or make an operating recommendation.
 
 See the [demo runbook](docs/demo-runbook.md). The public demonstration page is limited to screened, simulated prototype outputs; generated model files and simulation outputs remain local.
+
+The linked [RetailFlex Climate Atlas](docs/atlas/README.md) maps public, station-level climate indicators derived from U.S. TMY3 EPW files. It contains no raw EPW records or retail-site data and is not a store-performance or future-climate atlas.
 
 ## Controlled site-model mode
 

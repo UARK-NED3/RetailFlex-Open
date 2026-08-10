@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RetailFlex Climate Atlas</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <p class="kicker">RetailFlex-Open · public screening layer</p>
+      <h1>RetailFlex Climate Atlas</h1>
+      <p class="lede">U.S. typical-meteorological-year indicators for selecting weather files and prioritizing supermarket flexibility questions.</p>
+      <div class="metrics"><div><span id="metric-stations">—</span><label>stations</label></div><div><span id="metric-cdd">—</span><label>median CDD18.3</label></div><div><span id="metric-humid">—</span><label>median hot-humid h</label></div></div>
+      <section><h2>Map layer</h2><label for="metric-select">Color markers by</label><select id="metric-select"><option value="cooling_degree_days_c">Cooling degree days</option><option value="hot_humid_hours">Hot-humid hours</option><option value="hot_hours_ge_30c">Hours at or above 30°C</option><option value="heating_degree_days_c">Heating degree days</option><option value="annual_ghi_kwh_m2">Annual GHI</option></select><label for="region-select">Region</label><select id="region-select"><option value="Contiguous U.S.">Contiguous U.S.</option><option value="all">All U.S. locations</option><option value="Alaska">Alaska</option><option value="Hawaii">Hawaii</option><option value="Territories">Territories</option></select><label for="archetype-select">Retail climate archetype</label><select id="archetype-select"><option value="all">All archetypes</option></select></section>
+      <section><h2>Selected metric</h2><p id="metric-definition" class="definition"></p><div id="legend" class="legend"></div></section>
+      <section><h2>Boundary</h2><p class="note">Markers are public weather stations, not retail stores. Values are derived from typical-meteorological-year EPW files; they do not represent actual store energy use, observed extremes, utility cost, safety, or future climate.</p></section>
+      <p class="links"><a href="../">RetailFlex Decision Studio</a> · <a href="./README.md">Methods</a></p>
+    </aside>
+    <main><div id="map" aria-label="Interactive map of public U.S. climate stations"></div><div id="count-badge">Loading climate stations…</div></main>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="./data/retailflex_climate_atlas_tmy3.js"></script><script src="./app.js"></script>
+</body></html>

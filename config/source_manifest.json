@@ -23,6 +23,12 @@
       "notes": "Use a location-specific EPW; initial Northwest Arkansas candidates include Fayetteville, Bentonville, Rogers, and Springdale."
     },
     {
+      "id": "retailflex_climate_atlas_tmy3_derived",
+      "role": "public_derived_climate_screening_metrics",
+      "redistributed": false,
+      "notes": "Station-level derived metrics only; raw EPW records are not included. Retain source attribution and applicable NLR terms."
+    },
+    {
       "id": "cbecs_2018",
       "role": "stock_characterization_reference",
       "redistributed": false,

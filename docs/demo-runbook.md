@@ -1,4 +1,4 @@
-# RetailFlex Decision Sandbox runbook
+# RetailFlex Decision Studio runbook
 
 This demonstration uses a representative SuperMarket prototype and public weather data. It is a simulated screening workflow, not a Walmart-store model or operating recommendation.
 
@@ -21,7 +21,7 @@ This demonstration uses a representative SuperMarket prototype and public weathe
 
 ```powershell
 & 'C:\Program Files\openstudio-3.11.0\bin\openstudio.exe' execute_ruby_script scripts\summarize_demo_results.rb --scenarios artifacts\demo\scenarios --output artifacts\demo\report
-& 'C:\Program Files\openstudio-3.11.0\bin\openstudio.exe' execute_ruby_script scripts\build_demo_html.rb --input artifacts\demo\report\results.json --output artifacts\demo\retailflex_decision_sandbox.html
+& 'C:\Program Files\openstudio-3.11.0\bin\openstudio.exe' execute_ruby_script scripts\build_demo_html.rb --input artifacts\demo\report\results.json --output artifacts\demo\retailflex_decision_studio.html
 ```
 
 Open the generated HTML file directly in a browser. It has no network dependency.

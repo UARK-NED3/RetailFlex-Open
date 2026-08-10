@@ -8,7 +8,7 @@ RetailFlex-Open is evolving from a public prototype demonstration into a reprodu
 
 | Deliverable | Decision enabled | Completion condition |
 |---|---|---|
-| Public prototype baseline and synthetic decision sandbox | Explain the method and its claim boundary | Reproducible simulation and explicit screening-only language |
+| Public prototype baseline and synthetic decision studio | Explain the method and its claim boundary | Reproducible simulation and explicit screening-only language |
 | Controlled site-model adapter | Safely inventory an authorized local OSM or IDF without copying it | Counts-only output written to an ignored location |
 | Site-intake contract and validator | Determine whether a site assessment can begin | Deterministic ready/blocked report with missing-evidence reasons |
 | Readiness report | Identify the next evidence collection step | No savings/control recommendation when critical inputs are missing |
