@@ -4,6 +4,11 @@ Open, reproducible workflows for screening retail-building energy flexibility.
 
 RetailFlex-Open creates transparent EnergyPlus/OpenStudio baseline models, applies explicitly defined flexibility scenarios, and reports changes in energy, demand, operating conditions, and comfort-related metrics. The initial release targets a **screening-level SuperMarket workflow** for Northwest Arkansas. It is not a calibrated Walmart-store digital twin and does not make savings, resilience, refrigeration-safety, or customer-operation claims.
 
+## Try the public tools
+
+- **[Open the RetailFlex Decision Studio](https://uark-ned3.github.io/RetailFlex-Open/)** to explore illustrative retail-building flexibility scenarios and their energy, demand, and operating-condition tradeoffs.
+- **[Open the RetailFlex Climate Atlas](https://uark-ned3.github.io/RetailFlex-Open/atlas/)** to compare station-level climate indicators relevant to retail-building screening across the United States.
+
 ## Version 0.1 scope
 
 1. Generate a current OpenStudio SuperMarket prototype using `openstudio-standards`.
@@ -17,9 +22,9 @@ The first planned measures are thermostat adjustment, precooling, lighting reduc
 
 The repository now includes a reproducible, local **RetailFlex Decision Studio** workflow. It runs a baseline plus two clearly illustrative schedule scenarios and produces a self-contained HTML page for an Energy/facilities discussion. It is designed to show both favorable and unfavorable results; it does not calculate utility-bill savings or make an operating recommendation.
 
-See the [demo runbook](docs/demo-runbook.md). The public demonstration page is limited to screened, simulated prototype outputs; generated model files and simulation outputs remain local.
+Open the [public Decision Studio](https://uark-ned3.github.io/RetailFlex-Open/) or see the [demo runbook](docs/demo-runbook.md). The public demonstration page is limited to screened, simulated prototype outputs; generated model files and simulation outputs remain local.
 
-The linked [RetailFlex Climate Atlas](docs/atlas/README.md) maps public, station-level climate indicators derived from U.S. TMY3 EPW files. It contains no raw EPW records or retail-site data and is not a store-performance or future-climate atlas.
+The [public RetailFlex Climate Atlas](https://uark-ned3.github.io/RetailFlex-Open/atlas/) maps station-level climate indicators derived from U.S. TMY3 EPW files; its [technical documentation](docs/atlas/README.md) describes the metrics and build process. It contains no raw EPW records or retail-site data and is not a store-performance or future-climate atlas.
 
 ## Controlled site-model mode
 
