@@ -4,6 +4,9 @@ Open, reproducible workflows for screening retail-building energy flexibility.
 
 RetailFlex-Open creates transparent EnergyPlus/OpenStudio baseline models, applies explicitly defined flexibility scenarios, and reports changes in energy, demand, operating conditions, and comfort-related metrics. The initial release targets a **screening-level SuperMarket workflow** for Northwest Arkansas. It is not a calibrated Walmart-store digital twin and does not make savings, resilience, refrigeration-safety, or customer-operation claims.
 
+Repository scope, evidence, and reuse boundaries are also available in the
+[NED3 resource manifest](.ned3/resource-manifest-v0.1.json).
+
 ## Try the public tools
 
 - **[Open the RetailFlex Decision Studio](https://uark-ned3.github.io/RetailFlex-Open/)** to explore illustrative retail-building flexibility scenarios and their energy, demand, and operating-condition tradeoffs.
